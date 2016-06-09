@@ -1,0 +1,23 @@
+{
+  "name": "Bot",
+  "version": "1.0.0",
+  "description": "Tweets randomly generated sentences in the style of Gargantua and Pantagruel",
+  "main": "bot.js",
+  "dependencies": {
+    "twit": "^2.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node bot.js",
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "author": "E.C. Bosakowski",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+}
