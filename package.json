@@ -4,7 +4,8 @@
   "description": "Tweets randomly generated sentences in the style of Gargantua and Pantagruel",
   "main": "bot.js",
   "dependencies": {
-    "twit": "^2.2.3"
+    "twit": "^2.2.3",
+    "markovchain": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -19,5 +20,5 @@
   "license": "ISC",
   "bugs": {
     "url": ""
-  },
+  }
 }
