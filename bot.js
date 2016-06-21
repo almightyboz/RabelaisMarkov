@@ -1,5 +1,5 @@
 var Twit = require('twit');
-// var twitInfo = [consumer_key, consumer_secret, access_token, access_token_secret];
+var twitInfo = [consumer_key, consumer_secret, access_token, access_token_secret];
 
 var twitter = new Twit(twitInfo);
 
@@ -14,7 +14,11 @@ var MarkovChain = require('markovchain')
   , fs = require('fs')
   , quotes = new MarkovChain(fs.readFileSync('./rabelais.txt', 'utf8'));
 
-var sentence = quotes.start(useUpperCase).end(Math.floor((Math.random() * 3) + 6)).process() + ".";
+function generateSentence() {
+  return quotes.start(useUpperCase).end(Math.floor((Math.random() * 3) + 6)).process() + ".";
+}
+
+console.log(generateSentence());
 
 function postTweet(sentence) {
 
@@ -31,6 +35,6 @@ function postTweet(sentence) {
   });
 }
 
-postTweet(sentence);
-// second parameter is in miliseconds
-setInterval(postTweet, 1000*60*60*11);
+// postTweet(generateSentence);
+// // second parameter is in miliseconds
+// setInterval(postTweet(generateSentence, 1000*60*60*11);
