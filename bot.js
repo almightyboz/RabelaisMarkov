@@ -1,5 +1,5 @@
 var Twit = require('twit');
-var twitInfo = [consumer_key, consumer_secret, access_token, access_token_secret];
+var twitInfo = [CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET];
 
 //use when testing locally
 // var twitInfo = require('./config.js')
@@ -38,4 +38,4 @@ function postTweet(sentence) {
 
 postTweet(generateSentence);
 // second parameter is in miliseconds
-setInterval(postTweet(generateSentence), 1000*60*60*11);
+MNMNsetInterval(postTweet(generateSentence), 1000*60*60*11);
