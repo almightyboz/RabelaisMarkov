@@ -1,5 +1,5 @@
 var Twit = require('twit');
-var twitInfo = require('./config.js');
+// var twitInfo = [consumer_key, consumer_secret, access_token, access_token_secret];
 
 var twitter = new Twit(twitInfo);
 
@@ -24,13 +24,13 @@ function postTweet(sentence) {
 
   twitter.post('statuses/update', tweet , function(err, data, response) {
     if (err) {
-      console.log("5OMeTh1nG weNt wR0ng");
+      // console.log("5OMeTh1nG weNt wR0ng");
     } else {
-      console.log("Tweet sucessful");
+      // console.log("Tweet sucessful");
     }
   });
 }
 
 postTweet(sentence);
 // second parameter is in miliseconds
-// setInterval(postTweet, 1000*60*60*11);
+setInterval(postTweet, 1000*60*60*11);
