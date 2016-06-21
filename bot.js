@@ -33,4 +33,4 @@ function postTweet(sentence) {
 
 postTweet(sentence);
 // second parameter is in miliseconds
-setInterval(postTweet, 1000*60*60*11);
+setInterval(postTweet(sentence), 1000*60*60*11);
