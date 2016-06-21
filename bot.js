@@ -1,6 +1,9 @@
 var Twit = require('twit');
 var twitInfo = [consumer_key, consumer_secret, access_token, access_token_secret];
 
+//use when testing locally
+// var twitInfo = require('./config.js')
+
 var twitter = new Twit(twitInfo);
 
 var useUpperCase = function(wordList) {
@@ -18,8 +21,6 @@ function generateSentence() {
   return quotes.start(useUpperCase).end(Math.floor((Math.random() * 3) + 6)).process() + ".";
 }
 
-console.log(generateSentence());
-
 function postTweet(sentence) {
 
   var tweet = {
@@ -35,6 +36,6 @@ function postTweet(sentence) {
   });
 }
 
-// postTweet(generateSentence);
-// // second parameter is in miliseconds
-// setInterval(postTweet(generateSentence, 1000*60*60*11);
+postTweet(generateSentence);
+// second parameter is in miliseconds
+setInterval(postTweet(generateSentence), 1000*60*60*11);
