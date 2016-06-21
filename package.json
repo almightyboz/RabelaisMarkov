@@ -1,5 +1,5 @@
 {
-  "name": "Bot",
+  "name": "rabelais_bsot",
   "version": "1.0.0",
   "description": "Tweets randomly generated sentences in the style of Gargantua and Pantagruel",
   "main": "bot.js",
