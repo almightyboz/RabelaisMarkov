@@ -46,6 +46,6 @@ function postTweet(sentence) {
   });
 }
 
-postTweet(generateSentence;
+postTweet(generateSentence);
 // second parameter is in miliseconds
-setInterval( postTweet(generateSentence, 1000*60*60*11);
+setInterval( postTweet(generateSentence, 1000*60*60*11));
