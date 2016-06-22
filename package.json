@@ -1,21 +1,31 @@
 {
   "name": "rabelais_bot",
   "version": "1.0.0",
-  "description": "Tweets randomly generated sentences in the style of Gargantua and Pantagruel",
+  "description": "A bot that tweets randomly generated sentences in the style of Gargantua and Pantagruel.",
   "main": "bot.js",
   "dependencies": {
-    "twit": "^2.2.3",
-    "markovchain": "^1.0.0"
+    "twit": "^2.2.4",
+    "fs": "^0.0.2",
+    "markovchain": "^1.0.2"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node bot.js",
-    "test": "node bot.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "git+https://github.com/almightyboz/RabelaisMarkov.git"
   },
-  "author": "E.C. Bosakowski",
-  "license": "ISC"
+  "keywords": [
+    "Rabelais",
+    "Gargantua",
+    "Pantagruel",
+    "robot"
+  ],
+  "author": "Boz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/almightyboz/RabelaisMarkov/issues"
+  },
+  "homepage": "https://github.com/almightyboz/RabelaisMarkov#readme"
 }
