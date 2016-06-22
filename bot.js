@@ -1,14 +1,20 @@
 var Twit = require('twit');
+var api_key = process.env.CONSUMER_KEY;
+var api_secret = process.env.CONSUMER_SECRET;
+var auth_token = process.env.ACCESS_TOKEN;
+var secret_token = process.env.ACCESS_TOKEN_SECRET;
+
+var twitInfo = {
+          consumer_key: api_key,
+          consumer_secret: api_secret,
+          access_token: auth_token,
+          access_token_secret: secret_token
+        };
 
 //use when testing locally
 // var twitInfo = require('./config.js')
 
-var twitter = new Twit({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET
-});
+var twitter = new Twit(twitInfo);
 
 var useUpperCase = function(wordList) {
   var tempList = Object.keys(wordList).filter(function(word) {
@@ -33,13 +39,13 @@ function postTweet(sentence) {
 
   twitter.post('statuses/update', tweet , function(err, data, response) {
     if (err) {
-      // console.log("5OMeTh1nG weNt wR0ng");
+      console.log("5OMeTh1nG weNt wR0ng");
     } else {
-      // console.log("Tweet sucessful");
+      console.log("Tweet sucessful");
     }
   });
 }
 
-postTweet(generateSentence);
+postTweet(generateSentence());
 // second parameter is in miliseconds
-setInterval(postTweet(generateSentence), 1000*60*60*11);
+setInterval(postTweet(generateSentence()), 1000*60*60*11);
