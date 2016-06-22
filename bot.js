@@ -1,6 +1,10 @@
 var Twit = require('twit');
+var consumer_key = process.env.CONSUMER_KEY;
+var consumer_secret = process.env.CONSUMER_SECRET;
+var access_token = process.env.ACCESS_TOKEN;
+var secret_token = process.env.ACCESS_TOKEN_SECRET;
 
-var twitInfo = [process.env.CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET];
+var twitInfo = [consumer_key, consumer_secret, access_token, secret_token];
 
 //use when testing locally
 // var twitInfo = require('./config.js')
