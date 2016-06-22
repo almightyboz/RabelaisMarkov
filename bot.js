@@ -39,9 +39,9 @@ function postTweet(sentence) {
 
   twitter.post('statuses/update', tweet , function(err, data, response) {
     if (err) {
-      console.log("5OMeTh1nG weNt wR0ng");
+      // console.log("5OMeTh1nG weNt wR0ng");
     } else {
-      console.log("Tweet sucessful");
+      // console.log("Tweet sucessful");
     }
   });
 }
