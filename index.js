@@ -25,7 +25,7 @@ var useUpperCase = function(wordList) {
 
 var MarkovChain = require('markovchain')
   , fs = require('fs')
-  , quotes = new MarkovChain(fs.readFileSync('./rabelais.txt', 'utf8'));
+  , quotes = new MarkovChain(fs.readFileSync('./botfiles/rabelais.txt', 'utf8'));
 
 function generateSentence() {
   return quotes.start(useUpperCase).end(Math.floor((Math.random() * 3) + 6)).process() + ".";
