@@ -11,7 +11,7 @@ var Twit = require('twit');
 //           access_token_secret: secret_token
 //         };
 
-
+var corpus = require('botfiles/rabelais.txt');
 var twitter = new Twit(require('botfiles/config.js'));
 
 var useUpperCase = function(wordList) {
@@ -24,7 +24,7 @@ var useUpperCase = function(wordList) {
 
 var MarkovChain = require('markovchain')
   , fs = require('fs')
-  , quotes = new MarkovChain(fs.readFileSync('./botfiles/rabelais.txt', 'utf8'));
+  , quotes = new MarkovChain(fs.readFileSync(corpus, 'utf8'));
 
 
 function generateSentence() {

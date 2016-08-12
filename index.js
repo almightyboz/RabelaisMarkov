@@ -11,7 +11,6 @@ var Twit = require('twit');
 //           access_token_secret: secret_token
 //         };
 
-
 var twitter = new Twit(require('botfiles/config.js'));
 
 var useUpperCase = function(wordList) {
@@ -24,7 +23,7 @@ var useUpperCase = function(wordList) {
 
 var MarkovChain = require('markovchain')
   , fs = require('fs')
-  , quotes = new MarkovChain(fs.readFileSync(require('./botfiles/rabelais.txt'), 'utf8'));
+  , quotes = new MarkovChain(fs.readFileSync('./botfiles/rabelais.txt', 'utf8'));
 
 
 function generateSentence() {
@@ -45,24 +44,25 @@ function generateSentence() {
 //     }
 //   });
 // }
+console.log(generateSentence())
 
-exports.handler = function myBot(event, context) {
+// exports.handler = function myBot(event, context) {
 
-  var tweet = {
-    status: generateSentence()
-  };
+//   var tweet = {
+//     status: generateSentence()
+//   };
 
-  twitter.post('statuses/update', tweet, function(err, reply) {
-    if (err) {
-      console.log('Error: ', err);
-      context.fail();
-    }
-    else {
-      console.log('tweet: ', reply);
-      context.succeed();
-    }
-  });
-};
+//   twitter.post('statuses/update', tweet, function(err, reply) {
+//     if (err) {
+//       console.log('Error: ', err);
+//       context.fail();
+//     }
+//     else {
+//       console.log('tweet: ', reply);
+//       context.succeed();
+//     }
+//   });
+// };
 
 // myBot();
 
