@@ -11,8 +11,6 @@ var twitInfo = {
           access_token_secret: secret_token
         };
 
-//use when testing locally
-// var twitInfo = require('./config.js')
 
 var twitter = new Twit(twitInfo);
 
@@ -23,29 +21,51 @@ var useUpperCase = function(wordList) {
   return tempList[~~(Math.random()*tempList.length)];
 };
 
+
 var MarkovChain = require('markovchain')
   , fs = require('fs')
   , quotes = new MarkovChain(fs.readFileSync('./botfiles/rabelais.txt', 'utf8'));
+
 
 function generateSentence() {
   return quotes.start(useUpperCase).end(Math.floor((Math.random() * 3) + 6)).process() + ".";
 }
 
-function postTweet(sentence) {
+// function postTweet(sentence) {
+
+//   var tweet = {
+//     status: sentence
+//   };
+
+//   twitter.post('statuses/update', tweet , function(err, data, response) {
+//     if (err) {
+//       // console.log("5OMeTh1nG weNt wR0ng");
+//     } else {
+//       // console.log("Tweet sucessful");
+//     }
+//   });
+// }
+
+exports.handler = function myBot(event, context) {
 
   var tweet = {
-    status: sentence
+    status: generateSentence();
   };
 
-  twitter.post('statuses/update', tweet , function(err, data, response) {
+  twitter.post('statuses/update', tweet, function(err, reply) {
     if (err) {
-      // console.log("5OMeTh1nG weNt wR0ng");
-    } else {
-      // console.log("Tweet sucessful");
+      console.log('Error: ', err);
+      context.fail();
     }
-  });
+    else {
+      console.log('tweet: ', reply);
+      context.success();
+    }
+  })
 }
 
-postTweet(generateSentence);
+
+// postTweet(generateSentence);
 // second parameter is in miliseconds
-setInterval( postTweet(generateSentence), 1000*60*60*11);
+// useful if I have a server going indefinitely
+// setInterval( postTweet(generateSentence), 1000*60*60*11);
