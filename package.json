@@ -24,12 +24,11 @@
     "run-sequence": "^1.2.1"
   },
   "dependencies": {
-    "botfiles": "file:botfiles",
+    "botfiles": "file:///Users/emilybosakowski/PersonalProjects/JavaScript/RabelaisMarkov/botfiles",
     "fs": "^0.0.2",
     "markovchain": "^1.0.2",
     "twit": "^2.2.4",
-    "underscore": "^1.8.3",
-    "yes": "file:botfiles"
+    "underscore": "^1.8.3"
   },
   "repository": {
     "type": "git",

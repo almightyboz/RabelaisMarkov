@@ -1,13 +1,7 @@
 {
-  "name": "yes",
+  "name": "botfiles",
   "version": "1.0.1",
   "description": "config and data files for lambda bot",
-  "main": "config.js",
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Emily Bosakowski",
   "license": "ISC"
 }

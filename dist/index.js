@@ -1,5 +1,6 @@
 var Twit = require('twit');
-
+var fs = require('fs');
+var MarkovChain = require('markovchain');
 var twitter = new Twit(require('botfiles/config.js'));
 // var corpus = require('botfiles/rabelais.txt');
 
@@ -10,10 +11,7 @@ var useUpperCase = function(wordList) {
   return tempList[~~(Math.random()*tempList.length)];
 };
 
-var MarkovChain = require('markovchain')
-  , fs = require('fs')
-  , quotes = new MarkovChain(fs.readFileSync('./botfiles/rabelais.txt', 'utf8'));
-
+var quotes = new MarkovChain(fs.readFileSync('node_modules/botfiles/rabelais.txt', 'utf8'));
 
 function generateSentence() {
   return quotes.start(useUpperCase).end(Math.floor((Math.random() * 3) + 6)).process() + ".";
