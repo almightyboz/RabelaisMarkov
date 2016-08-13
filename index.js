@@ -1,17 +1,7 @@
 var Twit = require('twit');
-// var api_key = process.env.CONSUMER_KEY;
-// var api_secret = process.env.CONSUMER_SECRET;
-// var auth_token = process.env.ACCESS_TOKEN;
-// var secret_token = process.env.ACCESS_TOKEN_SECRET;
-
-// var twitInfo = {
-//           consumer_key: api_key,
-//           consumer_secret: api_secret,
-//           access_token: auth_token,
-//           access_token_secret: secret_token
-//         };
 
 var twitter = new Twit(require('botfiles/config.js'));
+// var corpus = require('botfiles/rabelais.txt');
 
 var useUpperCase = function(wordList) {
   var tempList = Object.keys(wordList).filter(function(word) {
@@ -19,7 +9,6 @@ var useUpperCase = function(wordList) {
   });
   return tempList[~~(Math.random()*tempList.length)];
 };
-
 
 var MarkovChain = require('markovchain')
   , fs = require('fs')
@@ -62,9 +51,6 @@ exports.handler = function myBot(event, context) {
     }
   });
 };
-
-
-// myBot();
 
 
 // postTweet(generateSentence);
