@@ -1,7 +1,7 @@
 var Twit = require('twit');
 
 var twitter = new Twit(require('botfiles/config.js'));
-// var corpus = require('botfiles/rabelais.txt');
+var corpus = require('botfiles/rabelais.txt');
 
 var useUpperCase = function(wordList) {
   var tempList = Object.keys(wordList).filter(function(word) {
@@ -12,7 +12,7 @@ var useUpperCase = function(wordList) {
 
 var MarkovChain = require('markovchain')
   , fs = require('fs')
-  , quotes = new MarkovChain(fs.readFileSync('./botfiles/rabelais.txt', 'utf8'));
+  , quotes = new MarkovChain(fs.readFileSync(corpus, 'utf8'));
 
 
 function generateSentence() {
