@@ -2,7 +2,6 @@ var Twit = require('twit');
 var fs = require('fs');
 var MarkovChain = require('markovchain');
 var twitter = new Twit(require('botfiles/config.js'));
-// var corpus = require('botfiles/rabelais.txt');
 
 var useUpperCase = function(wordList) {
   var tempList = Object.keys(wordList).filter(function(word) {
@@ -11,27 +10,17 @@ var useUpperCase = function(wordList) {
   return tempList[~~(Math.random()*tempList.length)];
 };
 
+// change this to have it draw from a different text in botfiles
 var quotes = new MarkovChain(fs.readFileSync('node_modules/botfiles/rabelais.txt', 'utf8'));
 
+// Very basic. Starts with random uppercase work, adds 4 to 7 words and ends with a period.
+// Better algorithm, generate sentences until it generates one that is within Twitter length constraints and ends with a naturally occuring word-followed by period.
+// Constraints in computation power
 function generateSentence() {
   return quotes.start(useUpperCase).end(Math.floor((Math.random() * 3) + 6)).process() + ".";
 }
 
-// function postTweet(sentence) {
-
-//   var tweet = {
-//     status: sentence
-//   };
-
-//   twitter.post('statuses/update', tweet , function(err, data, response) {
-//     if (err) {
-//       // console.log("5OMeTh1nG weNt wR0ng");
-//     } else {
-//       // console.log("Tweet sucessful");
-//     }
-//   });
-// }
-
+//function called by AWS Lambda
 exports.handler = function myBot(event, context) {
 
   var tweet = {
@@ -49,9 +38,3 @@ exports.handler = function myBot(event, context) {
     }
   });
 };
-
-
-// postTweet(generateSentence);
-// second parameter is in miliseconds
-// useful if I have a server going indefinitely
-// setInterval( postTweet(generateSentence), 1000*60*60*11);
